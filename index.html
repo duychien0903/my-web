@@ -8,40 +8,23 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Nền Galaxy Deep Space */
+        /* Đặt ảnh phi hành gia làm background phủ toàn màn hình */
         body {
             margin: 0;
             padding: 0;
-            overflow-x: hidden;
-            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
             min-height: 100vh;
-        }
-
-        /* Canvas làm hiệu ứng sao đêm */
-        #galaxy-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        /* Thẻ nội dung nổi bật phía trên nền Galaxy */
-        .content-card {
-            position: relative;
-            z-index: 10;
+            background-image: url('111.avif'); /* Tên file ảnh bạn vừa upload lên GitHub */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
         }
     </style>
 </head>
 <body class="min-h-screen flex items-center justify-center p-4">
 
-    <!-- Canvas vẽ Galaxy Starfield -->
-    <canvas id="galaxy-canvas"></canvas>
-
-    <!-- Khung thông tin cá nhân -->
-    <div class="content-card bg-white/95 backdrop-blur-md shadow-2xl rounded-2xl max-w-2xl w-full p-8 md:p-12 transition-transform transform hover:scale-[1.01] duration-300">
+    <!-- Khung thông tin cá nhân (có hiệu ứng mờ nhẹ để nổi bật trên nền ảnh) -->
+    <div class="bg-white/95 backdrop-blur-md shadow-2xl rounded-2xl max-w-2xl w-full p-8 md:p-12 transition-transform transform hover:scale-[1.01] duration-300">
         
         <!-- Ảnh đại diện & Tiêu đề -->
         <div class="flex flex-col md:flex-row items-center gap-6 border-b pb-8">
@@ -106,69 +89,5 @@
 
     </div>
 
-    <!-- Script tạo hiệu ứng Galaxy lấp lánh chuyển động -->
-    <script>
-        const canvas = document.getElementById('galaxy-canvas');
-        const ctx = canvas.getContext('2d');
-
-        let width, height;
-        let stars = [];
-
-        function initCanvas() {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
-            stars = [];
-            
-            // Tạo 200 ngôi sao lấp lánh với kích thước và tốc độ ngẫu nhiên
-            for (let i = 0; i < 200; i++) {
-                stars.push({
-                    x: Math.random() * width,
-                    y: Math.random() * height,
-                    radius: Math.random() * 1.5 + 0.5,
-                    alpha: Math.random(),
-                    speed: Math.random() * 0.02 + 0.005,
-                    dir: Math.random() < 0.5 ? 1 : -1
-                });
-            }
-        }
-
-        function drawGalaxy() {
-            ctx.clearRect(0, 0, width, height);
-
-            // Vẽ các dải mây ngân hà (Nebula clouds)
-            const gradient1 = ctx.createRadialGradient(width * 0.3, height * 0.3, 50, width * 0.3, height * 0.3, 400);
-            gradient1.addColorStop(0, 'rgba(120, 80, 220, 0.25)');
-            gradient1.addColorStop(1, 'transparent');
-            ctx.fillStyle = gradient1;
-            ctx.fillRect(0, 0, width, height);
-
-            const gradient2 = ctx.createRadialGradient(width * 0.7, height * 0.7, 50, width * 0.7, height * 0.7, 450);
-            gradient2.addColorStop(0, 'rgba(236, 72, 153, 0.2)');
-            gradient2.addColorStop(1, 'transparent');
-            ctx.fillStyle = gradient2;
-            ctx.fillRect(0, 0, width, height);
-
-            // Vẽ các ngôi sao nhấp nháy
-            for (let star of stars) {
-                star.alpha += star.speed * star.dir;
-                if (star.alpha >= 1 || star.alpha <= 0.2) {
-                    star.dir *= -1;
-                }
-
-                ctx.beginPath();
-                ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
-                ctx.shadowBlur = 8;
-                ctx.shadowColor = '#ffffff';
-                ctx.fill();
-            }
-
-            requestAnimationFrame(drawGalaxy);
-        }
-
-        window.addEventListener('resize', initCanvas);
-        initCanvas();
-        drawGalaxy();
-    </script>
 </body>
 </html>
