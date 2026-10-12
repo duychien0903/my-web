@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-   <style>
-    @keyframes gradientBG {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-    }
-    body {
-        background: linear-gradient(-45deg, #e0e7ff, #ede9fe, #dbeafe, #f3e8ff);
-        background-size: 400% 400%;
-        animation: gradientBG 15s ease infinite;
-    }
-   </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giới thiệu bản thân - Bùi Duy Chiến</title>
     <!-- Nhúng Tailwind CSS qua CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Hiệu ứng nền Galaxy chuyển động */
+        @keyframes galaxyAnim {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        body {
+            /* Sử dụng background ảnh không gian kết hợp hiệu ứng chuyển màu huyền ảo */
+            background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #1a0b2e);
+            background-size: 400% 400%;
+            animation: galaxyAnim 20s ease infinite;
+        }
+    </style>
 </head>
-<body class="bg-gradient-to-br from-indigo-50 to-blue-100 min-h-screen flex items-center justify-center p-4">
+<body class="min-h-screen flex items-center justify-center p-4">
 
-    <div class="bg-white shadow-2xl rounded-2xl max-w-2xl w-full p-8 md:p-12 transition-transform transform hover:scale-[1.01] duration-300">
+    <div class="bg-white/95 backdrop-blur-md shadow-2xl rounded-2xl max-w-2xl w-full p-8 md:p-12 transition-transform transform hover:scale-[1.01] duration-300">
         
         <!-- Ảnh đại diện & Tiêu đề -->
         <div class="flex flex-col md:flex-row items-center gap-6 border-b pb-8">
@@ -76,10 +78,10 @@
 
             <!-- Mạng xã hội -->
             <div class="flex gap-4 mt-6">
-                <a href="https://www.facebook.com/share/1A1ysiHCT9/?mibextid=wwXIfr" target="_blank" class="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition">
+                <a href="https://www.facebook.com/share/1AlysiHCT9/?mibextid=wwXIfr" target="_blank" class="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition">
                     <i class="fa-brands fa-facebook-f"></i> Facebook
                 </a>
-                <a href="https://github.com/duychien0903" target="_blank" class="flex items-center gap-2 bg-gray-800 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-900 transition">
+                <a href="https://github.com/minhchien0903" target="_blank" class="flex items-center gap-2 bg-gray-800 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-900 transition">
                     <i class="fa-brands fa-github"></i> GitHub
                 </a>
             </div>
