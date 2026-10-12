@@ -88,20 +88,5 @@
         </div>
 
     </div>
-
-    <!-- Đoạn mã JavaScript xử lý thay đổi ảnh trực tiếp -->
-    <script>
-        function changeAvatar(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    // Thay đổi nguồn ảnh (src) của thẻ img bằng tấm ảnh bạn vừa chọn từ máy tính
-                    document.getElementById('avatarPreview').src = e.target.result;
-                }
-                reader.readAsDataURL(file);
-            }
-        }
-    </script>
 </body>
 </html>
