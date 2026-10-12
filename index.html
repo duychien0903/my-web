@@ -3,28 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giới thiệu bản thân - Bùi Duy Chiến</title>
+    <title>Bùi Duy Chiến</title>
     <!-- Nhúng Tailwind CSS qua CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Phủ kín toàn bộ màn hình không viền trắng */
+        /* Đặt nền ảnh cố định full màn hình khi cuộn */
         body {
             margin: 0;
             padding: 0;
             min-height: 100vh;
             background-image: url('666.jpg');
-            background-size: 100% 100%;
+            background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
         }
     </style>
 </head>
-<body class="min-h-screen flex items-center justify-center p-2 sm:p-4">
+<body class="w-full py-4 px-2 sm:px-4">
 
-    <!-- Khung thông tin cá nhân full màn hình mobile -->
-    <div class="bg-white/95 backdrop-blur-md shadow-2xl rounded-2xl max-w-2xl w-full p-6 sm:p-10 my-auto transition-transform transform hover:scale-[1.01] duration-300">
+    <!-- Container cuộn tràn viền giống giao diện web chuẩn -->
+    <div class="max-w-2xl mx-auto w-full bg-white/95 backdrop-blur-md shadow-2xl rounded-2xl p-6 sm:p-10 transition-transform transform hover:scale-[1.01] duration-300">
         
         <!-- Ảnh đại diện & Tiêu đề -->
         <div class="flex flex-col md:flex-row items-center gap-6 border-b pb-6">
